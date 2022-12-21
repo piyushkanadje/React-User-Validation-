@@ -3,13 +3,24 @@ import classes  from "./UsersList.module.css";
 import Card from "../UI/Card";
 
 
+
 const UserList = (props) => {
-    console.log("UserList");
+
+
+
+    const deleteHandler =(props)=>{
+        console.log("deleteHandler");
+        console.log(props.id);
+        props.onDeleteItem(props.id);
+    };
+
+ 
   return (
     <Card className={classes.users}>
     <ul>
       {props.users.map((user) => (
-        <li key={user.id}>
+        <li key={user.id} onClick={deleteHandler}>
+         
           {user.name} ({user.age} years old)
         </li>
       ))}
